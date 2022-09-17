@@ -51,3 +51,17 @@ output "length" {
 output "for_loop" {
   value = {for s in local.a : s => upper(s)}
 }
+
+output "timestamp" {
+  value = timestamp()
+}
+
+
+output "timeadd" {
+  value = timeadd(timestamp(), "10m")
+}
+
+
+output "timefmt" {
+  value = formatdate("MM DD YYYY",timestamp())
+}
