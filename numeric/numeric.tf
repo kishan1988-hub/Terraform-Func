@@ -18,5 +18,5 @@ output "floor" {
 }
 
 output "max" {
-  value = max(local.num4)
+  value = max(local.num4...)
 }
