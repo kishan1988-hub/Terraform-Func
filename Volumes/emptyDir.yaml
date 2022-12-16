@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: testing-empty
+spec:
+   volumes:
+    - name: test-empty
+      emptyDir: {}
+   containers:
+     - name: redis
+       image: redis
+       volumeMounts:
+         - name: test-empty
+           mountPath: /data/redis
+
+
+# commands used
+# kubectl create -f ""
+# kubectl get pods testing-empty --watch
+# kubectl exec -it testing-empty -- /bin/bash
+# echo "Hello from container" > new.txt
+# kill 1
+# once killed the container would get recreated
+# even after this the file would persist - due to emptyDir volume
+# if you delete pod - then the file would be lost
